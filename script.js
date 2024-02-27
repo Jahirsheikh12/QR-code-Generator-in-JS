@@ -6,14 +6,12 @@ let qrContainer = document.querySelector('.qr-container');
 
 let resetBtn = document.getElementById('reset');
 
+let qrImage = document.getElementById('qrImage');
 
 generateBtn.addEventListener('click' , () => {
     let encodeUrl = encodeURIComponent(URL.value);
     let apiUrl= `https://api.qrserver.com/v1/create-qr-code/?data=${encodeUrl}&size=100x100`;
-    console.log(encodeUrl)
-    let imgContainer = document.createElement('img');
-    imgContainer.src = apiUrl;
-    qrContainer.appendChild(imgContainer);
+    qrImage.src = apiUrl;
     if(URL.value === ''){
         alert("please enter a text or valid URL");
     } else {
